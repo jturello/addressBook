@@ -6,9 +6,19 @@ describe('Contact', function() {
     expect(testContact.addresses).to.eql([]);
   });
 
-  it("adds the fullName method to a contact", function(){
+  it("adds the fullName method to all contacts", function(){
     var testContact = new Contact("Sherlock", "Holmes");
     expect(testContact.fullName()).to.equal("Sherlock Holmes");
   });
+});
+
+describe('Address', function() {
+  it("creates an address with the given specification", function(){
+    var testAddress = new Address("123 Main St.", "Test City", "Test State");
+    expect(testAddress.street).to.equal("123 Main St.");
+    expect(testAddress.city).to.equal("Test City");
+    expect(testAddress.state).to.equal("Test State");
+  });
+
 
 });
