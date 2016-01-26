@@ -28,12 +28,12 @@ $(document).ready(function() {
 
                                  '<div class="form-group">' +
                                    '<label for="new-city">City</label>' +
-                                   '<input type="text" class="form-control new-street">' +
+                                   '<input type="text" class="form-control new-city">' +
                                   '</div>' +
 
                                  '<div class="form-group">' +
                                    '<label for="new-state">State</label>' +
-                                   '<input type="text" class="form-control new-street">' +
+                                   '<input type="text" class="form-control new-state">' +
                                   '</div>');
   });
 
@@ -45,9 +45,9 @@ $(document).ready(function() {
     var newContact = new Contact(inputFirstName, inputLastName);
 
     $(".new-address").each(function() {
-      var inputStreet = $(this).find("input#new-street").val();
-      var inputCity   = $(this).find("input#new-city").val();
-      var inputState  = $(this).find("input#new-state").val();
+      var inputStreet = $(this).find("input.new-street").val();
+      var inputCity   = $(this).find("input.new-city").val();
+      var inputState  = $(this).find("input.new-state").val();
       var newAddress = new Address(inputStreet, inputCity, inputState);
       newContact.addresses.push(newAddress);
     });
@@ -63,6 +63,7 @@ $(document).ready(function() {
       $("#show-contact h2").text(newContact.fullName());
       $(".first-name").text(newContact.firstName);
       $(".last-name").text(newContact.lastName);
+      alert($("ul#addresses").text(""));
       $("ul#addresses").text("");
       newContact.addresses.forEach(function(address) {
         $("ul#addresses").append("<li>" + address.fullAddress() + "</li>");
